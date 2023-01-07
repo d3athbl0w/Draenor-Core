@@ -2804,10 +2804,10 @@ public:
 					{
 						if (unitOwner->GetTypeId() == TYPEID_PLAYER)
 							unitOwner->ToPlayer()->KilledMonsterCredit(NPC_BUTCHERBOT_KILL_CREDIT);
-						me->CastWithDelay(500, basilisk, SPELL_BUTCHERING, true);
-						me->CastWithDelay(1500, basilisk, SPELL_BUTCHERING, true);
-						me->CastWithDelay(2500, basilisk, SPELL_BUTCHERING, true);
-						me->CastWithDelay(3500, basilisk, SPELL_BUTCHERING, true);
+						me->CastSpell(basilisk, SPELL_BUTCHERING, true);
+						me->CastSpell(basilisk, SPELL_BUTCHERING, true);
+						me->CastSpell(basilisk, SPELL_BUTCHERING, true);
+						me->CastSpell(basilisk, SPELL_BUTCHERING, true);
 						basilisk->m_Events.AddEvent(new restoreFlags(basilisk), (basilisk)->m_Events.CalculateTime(4250));
 						basilisk->DespawnOrUnsummon(4500);
 						me->DespawnOrUnsummon(4500);
@@ -2816,10 +2816,10 @@ public:
 					{
 						if (unitOwner->GetTypeId() == TYPEID_PLAYER)
 							unitOwner->ToPlayer()->KilledMonsterCredit(NPC_FIREROC_KILL_CREDIT);
-						me->CastWithDelay(500, fireRoc, SPELL_BUTCHERING, true);
-						me->CastWithDelay(1500, fireRoc, SPELL_BUTCHERING, true);
-						me->CastWithDelay(2500, fireRoc, SPELL_BUTCHERING, true);
-						me->CastWithDelay(3500, fireRoc, SPELL_BUTCHERING, true);
+						me->CastSpell(fireRoc, SPELL_BUTCHERING, true);
+						me->CastSpell(fireRoc, SPELL_BUTCHERING, true);
+						me->CastSpell(fireRoc, SPELL_BUTCHERING, true);
+						me->CastSpell(fireRoc, SPELL_BUTCHERING, true);
 						fireRoc->m_Events.AddEvent(new restoreFlags(fireRoc), (fireRoc)->m_Events.CalculateTime(4250));
 						fireRoc->DespawnOrUnsummon(4500);
 						me->DespawnOrUnsummon(4500);
@@ -2828,10 +2828,10 @@ public:
 					{
 						if (unitOwner->GetTypeId() == TYPEID_PLAYER)
 							unitOwner->ToPlayer()->KilledMonsterCredit(NPC_BLISTERPAW_KILL_CREDIT);
-						me->CastWithDelay(500, hyena, SPELL_BUTCHERING, true);
-						me->CastWithDelay(1500, hyena, SPELL_BUTCHERING, true);
-						me->CastWithDelay(2500, hyena, SPELL_BUTCHERING, true);
-						me->CastWithDelay(3500, hyena, SPELL_BUTCHERING, true);
+						me->CastSpell(hyena, SPELL_BUTCHERING, true);
+						me->CastSpell(hyena, SPELL_BUTCHERING, true);
+						me->CastSpell(hyena, SPELL_BUTCHERING, true);
+						me->CastSpell(hyena, SPELL_BUTCHERING, true);
 						hyena->m_Events.AddEvent(new restoreFlags(hyena), (hyena)->m_Events.CalculateTime(4250));
 						hyena->DespawnOrUnsummon(4500);
 						me->DespawnOrUnsummon(4500);
@@ -3304,7 +3304,7 @@ public:
 			{
 				if (Creature* swarmer = caster->FindNearestCreature(NPC_HAZZALI_SWARMER, 10.0f, true))
 				{
-					caster->CastWithDelay(1000, swarmer, SPELL_SUMMON_WRANGLED, true);
+					caster->CastSpell(swarmer, SPELL_SUMMON_WRANGLED, true);
 					swarmer->DespawnOrUnsummon(1000);
 					return SPELL_CAST_OK;
 				}

@@ -122,7 +122,7 @@ public:
 			if (owner->GetTypeId() != TYPEID_PLAYER)
 				return;
 
-			me->SetSeerGUID(owner->GetGUID());
+			//me->SetSeerGUID(owner->GetGUID());
 			playerOwner = owner;
 			events.ScheduleEvent(EVENT_CHECK_AREA_BEFORE_FOLLOW, 2000);
 			events.ScheduleEvent(EVENT_CHECK_FOR_MOUNT, 1000);
@@ -891,7 +891,7 @@ public:
 					}
 					Talk(3);
 					DoCast(me, SPELL_DIAGONAL_SLIDE);
-					me->CastWithDelay(500, me, SPELL_SLIDE_EFFECT, true);
+					me->CastSpell(me, SPELL_SLIDE_EFFECT, true);
 					events.RescheduleEvent(EVENT_DIAGONAL_SLIDE, 16500);
 					break;
 				}
@@ -902,7 +902,7 @@ public:
 						Talk(5);
 						teleportCount = 0;
 						DoCast(me, SPELL_DIAGONAL_SLIDE);
-						me->CastWithDelay(500, me, SPELL_SLIDE_EFFECT, true);
+						me->CastSpell(me, SPELL_SLIDE_EFFECT, true);
 						events.CancelEvent(EVENT_CHECK_HP);
 						break;
 					}
@@ -1114,7 +1114,7 @@ public:
 				me->HandleEmoteCommand(EMOTE_ONESHOT_ROAR);
 				me->GetMotionMaster()->MovementExpired(false);
 				me->GetMotionMaster()->MoveJump(me->GetPositionX(), me->GetPositionY(), 163.87f, 1.0f, 3.0f, POINT_UP);
-				me->CastWithDelay(3000, me, SPELL_TWILIGHT_IMPUNITY, true);
+				me->CastSpell(me, SPELL_TWILIGHT_IMPUNITY, true);
 				break;
 			}
 			case SPELL_UNMASKED:
@@ -1166,8 +1166,8 @@ public:
 			{
 				me->SetCanFly(true);
 				me->SetDisableGravity(true);
-				me->CastWithDelay(9000, me, SPELL_UNMASKED);
-				me->CastWithDelay(8800, me, SPELL_TWILIGHT_EXPLOSION, true);    // TODO: This is not correct, we need the spell from retail
+				me->CastSpell(me, SPELL_UNMASKED);
+				me->CastSpell(me, SPELL_TWILIGHT_EXPLOSION, true);    // TODO: This is not correct, we need the spell from retail
 				break;
 			}
 			case POINT_GROUND:
@@ -1422,11 +1422,11 @@ public:
 			}
 			case 9: // Boost
 			{
-				me->CastWithDelay(500, me, SPELL_AFTER_MARKET_BURNERS);
+				me->CastSpell(me, SPELL_AFTER_MARKET_BURNERS);
 				if (Unit* passenger = me->GetVehicleKit()->GetPassenger(0))
 				{
 					passenger->ChangeSeat(2, false);
-					passenger->CastWithDelay(8000, passenger, SPELL_FADE_TO_BLACK, true);
+					passenger->CastSpell(passenger, SPELL_FADE_TO_BLACK, true);
 				}
 				me->SetSpeed(MOVE_FLIGHT, 4.0f, true);
 				me->SetSpeed(MOVE_RUN, 4.0f, true);
@@ -1476,7 +1476,7 @@ public:
 				{
 					if (Unit* passenger = me->GetVehicleKit()->GetPassenger(2))
 					{
-						passenger->CastWithDelay(200, passenger, SPELL_TP_TWILIGHT_HIGHLANDS, true);
+						passenger->CastSpell(passenger, SPELL_TP_TWILIGHT_HIGHLANDS, true);
 						passenger->SummonCreature(me->GetEntry(), -4947.77f, -6707.56f, 14.73f, 5.34f, TEMPSUMMON_MANUAL_DESPAWN, 300000);
 						me->GetVehicleKit()->RemoveAllPassengers();
 					}

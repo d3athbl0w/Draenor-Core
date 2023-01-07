@@ -80,7 +80,7 @@ public:
 			// Reset Checks
 			if (Unit* caster = GetCaster())
 			{
-				caster->m_cloudStacks = 0;
+				//caster->m_cloudStacks = 0;
 			}
 
 			if (Player* player = GetCaster()->ToPlayer())
@@ -97,9 +97,9 @@ public:
 				if (player->HasAura(79821))
 				{
 					if (player->GetTeam() == TEAM_ALLIANCE)
-						player->CastWithDelay(2000, player, 82399);
+						player->CastSpell(player, 82399);
 					else
-						player->CastWithDelay(2000, player, 82401);
+						player->CastSpell(player, 82401);
 
 					player->RemoveAurasDueToSpell(79821);
 				}

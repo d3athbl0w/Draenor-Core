@@ -5697,7 +5697,7 @@ public:
 			if (startTimer <= diff)
 			{
 				if (Creature* sentinel = me->FindNearestCreature(NPC_ENTRY_SENTINEL_PAWN, 60.0f, true))
-					me->CastWithDelay(1500, sentinel, SPELL_SENTINEL_BEAM, true);
+					me->CastSpell(sentinel, SPELL_SENTINEL_BEAM, true);
 				startTimer = 1210000;
 			}
 			else

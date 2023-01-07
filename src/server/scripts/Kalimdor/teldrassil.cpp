@@ -349,7 +349,7 @@ public:
 						if (player->GetQuestStatus(QUEST_NATURE_REPRISAL) == QUEST_STATUS_INCOMPLETE)
 						{
 							player->KilledMonsterCredit(QUEST_CREDIT_GRELLKIN);
-							target->CastWithDelay(3000, target, SPELL_SUICIDE, true);
+							target->CastSpell(target, SPELL_SUICIDE, true);
 							target->RemoveAurasDueToSpell(SPELL_NATURE_FURY);
 						}
 					}
